@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Fun D-Map</title>
+    <link rel="stylesheet" href="./css/d-css.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <audio id="d-sound_jawaban_benar">
+    <source src="./sound/sound_success.mp3" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="d-sound_jawaban_salah">
+    <source src="./sound/sound_wrong.mp3" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <!-- Modal -->
+<div style="" class="modal fade modal-dialog-scrollable" id="d-waktu_habis" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+  <div class="modal-dialog" style="margin-top: 120px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <strong style="font-size: 44px" class="me-auto"><img src="./img/img_timer.svg" alt="" srcset="" width="56px"></strong>
+            <strong style="font-size: 56px" class="me-auto">Waktu Habis</strong>
+            <!-- <span style="font-size: 32px;" class="text-white">+10</span> -->
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            Sesi waktu pengerjaan kuis telah berakhir, klik tombol di bawah untuk melihat hasil pengerjaan kuis!
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="lihatHasil()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">
+            Lihat hasil
+          </button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-dialog-scrollable" id="jawaban_benar_1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>1. Pemimpin Majapahit yang terkenal dengan sumpah palapa, yaitu…</b></div><br>
+            <b>a. Balaputradewa</b><br>
+            Pembahasan : merupakan raja kerajaan siwijaya<br><br>
+            <b>b. Kertanegara</b><br>
+            Pembahasan : merupakan raja kerajaan singasari<br><br>
+            <b class="text-success">c. Gajah Mada</b> <br>
+            <span style="background: #00ff6228">Pembahasan : merupakan patih dari kerajaan majapahit dan terkenal dengan sumpah palapa</span><br><br>
+            <b>d. Raden Wijaya</b><br>
+            Pembahasan : merupakan raja kerajaan majapahit
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal1Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+    </div>
+  </div>
+</div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>1. Pemimpin Majapahit yang terkenal dengan sumpah palapa, yaitu…</b></div><br>
+            <b>a. Balaputradewa</b><br>
+            Pembahasan : merupakan raja kerajaan siwijaya<br><br>
+            <b>b. Kertanegara</b><br>
+            Pembahasan : merupakan raja kerajaan singasari<br><br>
+            <b class="text-success">c. Gajah Mada</b> <br>
+            <span style="background: #00ff6228">Pembahasan : merupakan patih dari kerajaan majapahit dan terkenal dengan sumpah palapa</span><br><br>
+            <b>d. Raden Wijaya</b><br>
+            Pembahasan : merupakan raja kerajaan majapahit
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal1Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>2. Kerajaan Sriwijaya terletak di kota...</b></div><br>
+            <b>a. Aceh</b><br>
+            Pembahasan : merupakan letak keberadaan kerajaan aceh<br><br>
+            <b class="text-success">b. Palembang</b><br>
+            <span style="background: #00ff6228">Pembahasan : merupakan letak keberadaan kerajaan sriwijaya, provinsi sumatera selatan</span><br><br>
+            <b>c. Banten</b> <br>
+            Pembahasan : merupakan letak keberadaan kerajaan banten<br><br>
+            <b>d. Jogja</b><br>
+            Pembahasan : merupakan letak keberadaan kerajaan mataram
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal2Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>2. Kerajaan Sriwijaya terletak di kota...</b></div><br>
+            <b>a. Aceh</b><br>
+            Pembahasan : merupakan letak keberadaan kerajaan aceh<br><br>
+            <b class="text-success">b. Palembang</b><br>
+            <span style="background: #00ff6228">Pembahasan : merupakan letak keberadaan kerajaan sriwijaya, provinsi sumatera selatan</span><br><br>
+            <b>c. Banten</b> <br>
+            Pembahasan : merupakan letak keberadaan kerajaan banten<br><br>
+            <b>d. Jogja</b><br>
+            Pembahasan : merupakan letak keberadaan kerajaan mataram
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal2Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>3. Di bawah ini yang bukan merupakan peninggalan sejarah Kerajaan Islam adalah...</b></div><br>
+            <b>a. Masjid Demak</b><br>
+            Pembahasan : merupakan peninggalan kerajaan demak<br><br>
+            <b class="text-success">b. Candi Prambanan</b><br>
+            <span style="background: #00ff6228">Pembahasan : merupakan peninggalan kerajaan mataram</span><br><br>
+            <b>c. Istana Maimun</b> <br>
+            Pembahasan : merupakan peninggalan kerajaan ternate<br><br>
+            <b>d. Masjid Raya Baiturrahman</b><br>
+            Pembahasan : merupakan peninggalan kerajaan aceh
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal3Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>3. Di bawah ini yang bukan merupakan peninggalan sejarah Kerajaan Islam adalah...</b></div><br>
+            <b>a. Masjid Demak</b><br>
+            Pembahasan : merupakan peninggalan kerajaan demak<br><br>
+            <b class="text-success">b. Candi Prambanan</b><br>
+            <span style="background: #00ff6228">Pembahasan : merupakan peninggalan kerajaan mataram</span><br><br>
+            <b>c. Istana Maimun</b> <br>
+            Pembahasan : merupakan peninggalan kerajaan ternate<br><br>
+            <b>d. Masjid Raya Baiturrahman</b><br>
+            Pembahasan : merupakan peninggalan kerajaan aceh
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal3Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>4. Candi yang merupakan peninggalan Kerajaan Matara Buddha adalah Candi...</b></div><br>
+            <b>a. Prambanan</b><br>
+            Pembahasan : merupakan peninggalan kerajaan mataram yang bercorak hindu<br><br>
+            <b>b. Muara Takus</b><br>
+            Pembahasan : merupakan peninggalan kerajaan sriwijaya yang bercorak budha<br><br>
+            <b class="text-success">c. Borobudur</b> <br>
+            <span style="background: #00ff6228">Pembahasan : merupakan peninggalan kerajaan mataram kuno yang bercorak budha</span><br><br>
+            <b>d. Jago</b><br>
+            Pembahasan : merupakan peninggalan kerajaan singasari yang bercorak hindu 
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal4Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>4. Candi yang merupakan peninggalan Kerajaan Matara Buddha adalah Candi...</b></div><br>
+            <b>a. Prambanan</b><br>
+            Pembahasan : merupakan peninggalan kerajaan mataram yang bercorak hindu<br><br>
+            <b>b. Muara Takus</b><br>
+            Pembahasan : merupakan peninggalan kerajaan sriwijaya yang bercorak budha<br><br>
+            <b class="text-success">c. Borobudur</b> <br>
+            <span style="background: #00ff6228">Pembahasan : merupakan peninggalan kerajaan mataram kuno yang bercorak budha</span><br><br>
+            <b>d. Jago</b><br>
+            Pembahasan : merupakan peninggalan kerajaan singasari yang bercorak hindu 
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal4Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>5. Sejarah adalah cerita tentang kehidupan pada...</b></div><br>
+            <b class="text-success">a. Masa lalu</b><br>
+            <span style="background: #00ff6228">Pembahasan : peristiwa pada masa lalu dan diketahui melalui peninggalan pada masa peristiwa terjadi</span><br><br>
+            <b>b. Masa sekarang</b><br>
+            Pembahasan : peristiwa yang dirasakan secara langsung pertama kali<br><br>
+            <b>c. Masa depan</b> <br>
+            Pembahasan : peristiwa yang belum terjadi<br><br>
+            <b>d. Masa yang akan dating</b><br>
+            Pembahasan : peristiwa yang ada pada masa mendatang
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal5Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>5. Sejarah adalah cerita tentang kehidupan pada...</b></div><br>
+            <b class="text-success">a. Masa lalu</b><br>
+            <span style="background: #00ff6228">Pembahasan : peristiwa pada masa lalu dan diketahui melalui peninggalan pada masa peristiwa terjadi</span><br><br>
+            <b>b. Masa sekarang</b><br>
+            Pembahasan : peristiwa yang dirasakan secara langsung pertama kali<br><br>
+            <b>c. Masa depan</b> <br>
+            Pembahasan : peristiwa yang belum terjadi<br><br>
+            <b>d. Masa yang akan dating</b><br>
+            Pembahasan : peristiwa yang ada pada masa mendatang
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal5Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>6. Kerajaan yang bercorak Buddha di Indonesai adalah…</b></div><br>
+            <b>a. Kerajaan Kalingga</b><br>
+            Pembahasan : kerajaan bercorak hindu<br><br>
+            <b>b. Kerajaan Demak</b><br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>c. Kerajaan Aceh</b> <br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b class="text-success">d. Kerajaan Sriwijaya</b><br>
+            <span style="background: #00ff6228">Pembahasan : kerajaan bercorak budha</span> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal6Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>6. Kerajaan yang bercorak Buddha di Indonesai adalah…</b></div><br>
+            <b>a. Kerajaan Kalingga</b><br>
+            Pembahasan : kerajaan bercorak hindu<br><br>
+            <b>b. Kerajaan Demak</b><br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>c. Kerajaan Aceh</b> <br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b class="text-success">d. Kerajaan Sriwijaya</b><br>
+            <span style="background: #00ff6228">Pembahasan : kerajaan bercorak budha</span> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal6Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_7" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>7. Kerajaan bercorak Hindu di Indonesia adalah …</b></div><br>
+            <b class="text-success">a. Kerajaan Mataram</b><br>
+            <span style="background: #00ff6228">Pembahasan : kerajaan bercorak hindu</span><br><br>
+            <b>b. Kerajaan Perlak</b><br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>c. Kerajaan Samudera Pasai</b> <br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>d. Kerajaan Malaka</b><br>
+            Pembahasan : kerajaan bercorak Islam
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal7Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_7" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>7. Kerajaan bercorak Hindu di Indonesia adalah …</b></div><br>
+            <b class="text-success">a. Kerajaan Mataram</b><br>
+            <span style="background: #00ff6228">Pembahasan : kerajaan bercorak hindu</span><br><br>
+            <b>b. Kerajaan Perlak</b><br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>c. Kerajaan Samudera Pasai</b> <br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>d. Kerajaan Malaka</b><br>
+            Pembahasan : kerajaan bercorak Islam
+        </div>
+      </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal7Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_8" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>8. Berikut yang merupakan kerajaan yang bercorak Islam, kecuali…</b></div><br>
+            <b>a. Kerajaan samudera pasai</b><br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>Kerajaan demak</b><br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>c. Kerajaan aceh</b> <br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b class="text-success">d. Kerajaan kalingga</b><br>
+            <span style="background: #00ff6228">Pembahasan : kerajaan bercorak hindu</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal8Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_8" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>8. Berikut yang merupakan kerajaan yang bercorak Islam, kecuali…</b></div><br>
+            <b>a. Kerajaan samudera pasai</b><br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>Kerajaan demak</b><br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b>c. Kerajaan aceh</b> <br>
+            Pembahasan : kerajaan bercorak Islam<br><br>
+            <b class="text-success">d. Kerajaan kalingga</b><br>
+            <span style="background: #00ff6228">Pembahasan : kerajaan bercorak hindu</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal8Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_9" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>9. Kerajaan Sriwijaya adalah kerajaan Buddha yang terletak di provinsi ...</b></div><br>
+            <b class="text-success">a. Sumatera Selatan</b><br>
+            <span style="background: #00ff6228">Pembahasan : letak kerajaan sriwijaya yaitu di Palembang, sumatera selatan</span><br><br>
+            <b>b. Bengkulu</b><br>
+            Pembahasan : letak kerajaan selebar, gedung agung dan marau riang<br><br>
+            <b>c. Aceh</b> <br>
+            Pembahasan : letak kerajaan aceh<br><br>
+            <b>d. Sumatera Barat</b><br>
+            Pembahasan : letak kerajaan pagar uyung
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal9Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_9" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>9. Kerajaan Sriwijaya adalah kerajaan Buddha yang terletak di provinsi ...</b></div><br>
+            <b class="text-success">a. Sumatera Selatan</b><br>
+            <span style="background: #00ff6228">Pembahasan : letak kerajaan sriwijaya yaitu di Palembang, sumatera selatan</span><br><br>
+            <b>b. Bengkulu</b><br>
+            Pembahasan : letak kerajaan selebar, gedung agung dan marau riang<br><br>
+            <b>c. Aceh</b> <br>
+            Pembahasan : letak kerajaan aceh<br><br>
+            <b>d. Sumatera Barat</b><br>
+            Pembahasan : letak kerajaan pagar uyung
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal9Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_benar_10" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <strong style="font-size: 44px" class="me-auto">✅</strong>
+            <strong style="font-size: 56px" class="me-auto">Benar</strong>
+            <span style="font-size: 32px;" class="text-white">+10</span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>10. Raja yang paling berpengaruh serta membawa kemajuan sangat pesat bagi kerajaan Sriwijaya, yaitu ...</b></div><br>
+            <b>a. Ken Arok</b><br>
+            Pembahasan : raja dari kerajaan singasari<br><br>
+            <b class="text-success">b. Balaputradewa</b><br>
+            <span style="background: #00ff6228">Pembahasan : raja dari kerajaan sriwijaya yang memiliki kontribusi besar untuk sriwijaya</span><br><br>
+            <b>c. Raden Wijaya</b> <br>
+            Pembahasan : raja dari kerajaan majapahit<br><br>
+            <b>d. Kertanegara</b><br>
+            Pembahasan : raja terakhir dari kerajaan singasari 
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal10Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-dialog-scrollable" id="jawaban_salah_10" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-danger">
+            <strong style="font-size: 44px" class="me-auto">❌</strong>
+            <strong style="font-size: 56px" class="me-auto">Salah</strong>
+            <span style="font-size: 32px;" class="text-white"></span>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+            <div class="fs-4"><b>10. Raja yang paling berpengaruh serta membawa kemajuan sangat pesat bagi kerajaan Sriwijaya, yaitu ...</b></div><br>
+            <b>a. Ken Arok</b><br>
+            Pembahasan : raja dari kerajaan singasari<br><br>
+            <b class="text-success">b. Balaputradewa</b><br>
+            <span style="background: #00ff6228">Pembahasan : raja dari kerajaan sriwijaya yang memiliki kontribusi besar untuk sriwijaya</span><br><br>
+            <b>c. Raden Wijaya</b> <br>
+            Pembahasan : raja dari kerajaan majapahit<br><br>
+            <b>d. Kertanegara</b><br>
+            Pembahasan : raja terakhir dari kerajaan singasari 
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="soal10Lanjut()" class="btn" style="padding: 16px 32px; background: yellow; border: 4px solid #C55A11; color: maroon; box-shadow: 0px 12px 24px orange inset; font-weight: 700; font-size: 24px; border-radius: 24px;" data-bs-dismiss="modal">Soal Selanjutnya ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <main>
+      <div id="d-home" class="d-hide position-relative">
+          <div class="position-absolute h-100 w-100 d-flex justify-content-center">
+              <div id="d-banner_home" class="position-absolute text-center text-white margin-auto top-50 d-flex justify-content-center align-items-center">
+                  <b>
+                      Mengenal Kerajaan-Kerajaan Islam, Hindu, dan Budha di Indonesia
+                  </b>
+              </div>
+          </div>
+          <!-- <a href="http://" class="position-absolute top-10 end-0">
+              <img id="d-btn_close" src="./img/btn_close.png" alt="" srcset="">
+          </a> -->
+          <div class="position-absolute bottom-0 w-100 d-flex justify-content-between">
+              <a href="./informasi_pengembang.html" class="d-btn_small_square d-flex justify-content-center">
+                  <img id="d-btn_help" src="./img/btn_help.png" alt="" srcset="">
+              </a>
+              <a href="./mulai.html" class="d-btn_medium d-flex justify-content-center">
+                  <img id="d-btn_mulai" class="" src="./img/btn_mulai.png" alt="" srcset="">
+              </a>
+              <a href="informasi_tombol.html" class="d-btn_small_square d-flex justify-content-center">
+                  <img id="d-btn_info" class="" src="./img/btn_info.png" alt="" srcset="">
+              </a>
+          </div>
+          <img id="d-home_img_bg" class="img_bg_home" src="./img/bg_home.png" alt="" srcset="">
+      </div>
+        <div id="d-soal_dikerjakan" class="position-relative">
+            <!-- <div class="position-absolute w-100 d-flex justify-content-center">
+                <div id="d-banner_kuning" class="position-absolute text-center text-white margin-auto top-50 d-flex justify-content-center align-items-center">
+                    <b>
+                       INFORMASI TOMBOL
+                    </b>
+                </div>
+            </div> -->
+            <div class="position-absolute h-100 w-100 d-flex flex-column">
+                <div id="d-soal_1" class="d-flex d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        1. Pemimpin Majapahit yang terkenal dengan sumpah palapa, yaitu…
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_1" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center" data-keyboard="false" data-backdrop="static">
+                                <div class="d-pilihan">A.</div>
+                                <div>Balaputradewa</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_1" onclick="d_sound_jawaban_salah_play()" href="" class="jawaban_salah_btn d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Kertanegara</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_1" onclick="soal1Benar()" href="" class="jawaban_salah_btn d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Gajah Mada</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_1" onclick="d_sound_jawaban_salah_play()" href="" class="jawaban_salah_btn d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Raden Wijaya</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_2" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        2. Kerajaan Sriwijaya terletak di kota...<br>
+                        
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_2" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Aceh</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_2" onclick="soal2Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Palembang</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_2" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Banten</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_2" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Jogja</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_3" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        3. Di bawah ini yang bukan merupakan peninggalan sejarah Kerajaan Islam adalah...
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_3" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Masjid Demak</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_3" onclick="soal3Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Candi Prambanan</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_3" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Istana Maimun</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_3" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Masjid Raya Baiturrahman</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_4" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        4. Candi yang merupakan peninggalan Kerajaan Matara Buddha adalah Candi...
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_4" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Prambanan</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_4" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Muara Takus</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_4" onclick="soal4Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Borobudur</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_4" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Jago</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_5" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        5. Sejarah adalah cerita tentang kehidupan pada...
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_5" onclick="soal5Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Masa lalu</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_5" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Masa sekarang</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_5" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Masa depan</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_5" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Masa yang akan dating</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_6" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        6. Kerajaan yang bercorak Buddha di Indonesai adalah…
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_6" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Kerajaan Kalingga</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_6" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Kerajaan Demak</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_6" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Kerajaan Aceh</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_6" onclick="soal6Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Kerajaan Sriwijaya</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_7" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        7. Kerajaan bercorak Hindu di Indonesia adalah …
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_7" onclick="soal7Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Kerajaan Mataram</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_7" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Kerajaan Perlak</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_7" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Kerajaan Samudera Pasai</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_7" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Kerajaan Malaka</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_8" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        8. Berikut yang merupakan kerajaan yang bercorak Islam, kecuali…
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_8" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Kerajaan samudera pasai</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_8" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Kerajaan demak</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_8" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Kerajaan aceh</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_8" onclick="soal8Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Kerajaan kalingga</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_9" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        9. Kerajaan Sriwijaya adalah kerajaan Buddha yang terletak di provinsi ...
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_9" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Sumatera Selatan</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_9" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Bengkulu</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_9" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Aceh</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_9" onclick="soal9Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Sumatera Barat</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="d-soal_10" class="d-flex d-hide d-form d-soal position-relative mx-auto flex-column justify-content-start align-items-start"> 
+                    <div class="d-soal_yang_dibaca">
+                        10. Raja yang paling berpengaruh serta membawa kemajuan sangat pesat bagi kerajaan Sriwijaya, yaitu ...
+                    </div>
+                    <div class="d-jawaban d-flex flex-row justify-content-start">
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_10" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">A.</div>
+                                <div>Ken Arok</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_benar_10" onclick="soal10Benar()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">B.</div>
+                                <div>Balaputradewa</div>
+                            </button> 
+                        </div>
+                        <div>
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_10" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">C.</div>
+                                <div>Raden Wijaya</div>
+                            </button> 
+                            <button id="" data-bs-toggle="modal" data-bs-target="#jawaban_salah_10" onclick="d_sound_jawaban_salah_play()" href="" class="d-btn_small_square d-btn_hitam d-flex align-items-center">
+                                <div class="d-pilihan">D.</div>
+                                <div>Kertanegara</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="d-timer" href="" class="position-absolute top-10">
+                <img src="./img/img_timer.svg" alt="" srcset="" width="56px"><b><div id="d-countdown"><div id="values" class="values"></div></div></b>
+            </div>
+            <div id="d-wrap_skor" href="" class="position-absolute top-10 end-0">
+                Skor= <b><div id="d-skor">0</div></b>
+            </div>
+            <script src="./easytimer.js-master/dist/examples.min.js"> </script>
+            <script>
+              // const element = document.getElementById("demo");
+              setInterval(function() {
+                  var d_timer = document.getElementById("values").innerHTML;
+                if (d_timer == "Selesai"){
+                  document.getElementById("d-waktu_habis").classList.add("d-waktu_habis")
+                }
+              }, 1000);
+            </script>
+            <div class="position-absolute bottom-0 w-100 d-flex justify-content-center mb-3">
+                <!-- <a href="./mulai.html" class="d-btn_medium d-flex justify-content-center">
+                    <img id="d-btn_mulai" class="" src="./img/btn_kembali.png" alt="" srcset="">
+                </a> -->
+            </div>
+            <img id="d-home_img_bg" class="img_bg_kuis_soal" src="./img/bg_kuis_soal_2.png" alt="" srcset="">
+        </div>
+
+        
+        <div id="d-skor_akhir" class="d-hide position-relative">
+            <div class="position-absolute w-100 d-flex justify-content-center">
+                <div id="d-banner_kuning" class="position-absolute text-center text-white margin-auto top-50 d-flex justify-content-center align-items-center">
+                    <b>
+                       SKOR
+                    </b>
+                </div>
+            </div>
+            <div class="position-absolute h-100 w-100 d-flex justify-content-center">
+                <div id="" class="d-form position-absolute text-center text-white mx-auto d-flex flex-column justify-content-center align-items-center">
+                    <div class="text-black" style="font-weight: 600; font-size: 24px;">
+                        Skor Kamu Adalah
+                    <div id="d-skor_akhir_angka" style="background: white; font-size: 44px; font-weight: 700; color: #18256c; width: 100%; padding: 16px 104px; margin-top: 12px;">
+                        0
+                    </div>
+                    <div id="d-status_label" class="d-status_success" style="font-family: 'Times New Roman', Times, serif; font-size: 32px; color: white; text-shadow: 0px 0px 8px white; margin-bottom: 56px;">
+                        
+                    </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <a class="btn_menu_form_img mb-3" href="./soal2.html">
+                            <div class="" style="background: #c00000;">
+                                Coba Lagi
+                            </div>
+                        </a>
+                        <a class="btn_menu_form_img mb-3" onclick="btn_kuis_selesai()" style="margin-left: 24px;">
+                            <div class="" style="background: #ffc000;">
+                                Selesai
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./mulai.html" class="position-absolute top-10 end-0">
+                <img id="d-btn_close" src="./img/btn_close.png" alt="" srcset="">
+            </a>
+            <div class="position-absolute bottom-0 w-100 d-flex justify-content-between">
+                <a href="./index.html" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="" src="./img/btn_home.png" alt="" srcset="">
+                </a>
+                <!-- <a href="./index.html" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="" src="./img/btn_home.png" alt="" srcset="">
+                </a> -->
+                <!-- <a href="http://" class="d-btn_medium d-flex justify-content-center">
+                    <img id="d-btn_mulai" class="" src="./img/btn_mulai.png" alt="" srcset="">
+                </a> -->
+                <!-- <a href="informasi_tombol.html" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_info" class="" src="./img/btn_info.png" alt="" srcset="">
+                </a> -->
+            </div>
+            <img id="d-home_img_bg" class="img_bg_skor" src="./img/bg_skor.png" alt="" srcset="">
+        </div>
+    </main>
+    <script src="./javascript/js.js">
+    </script>
+</body>
+</html>

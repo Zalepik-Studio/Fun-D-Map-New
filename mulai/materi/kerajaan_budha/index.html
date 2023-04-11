@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Fun D-Map</title>
+    <link rel="stylesheet" href="../../css/d-css.css">
+    <script src="../../javascript/js_materi_k_budha.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <audio id="d-sound_materi_k_budha">
+        <source src="../../sound/sound_success.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+
+    <div id="screen_hp_putar" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-warning">
+            <strong style="font-size: 44px" class="me-auto"></strong>
+            <strong style="font-size: 32px; margin-top: 24px; margin-bottom: 24px" class="me-auto">Silahkan Putar Handphone 90°</strong>
+           
+          
+        </div>
+        <div class="modal-body text-center">
+            <img class="d-block mt-3 mx-auto" src="../../img/img_rotate.svg" alt="" srcset="">
+            <br>
+             <b class="mt-3 d-block">Tampilan aplikasi akan lebih optimal saat handpone diposisikan horizontal.</b>
+        </div>
+        
+      </div>
+    </div>
+    </div>
+
+    <div id="d-wrapper_screen">
+    <main>
+        <div id="" class="d-materi_peta_1 position-relative">
+            <div class="position-absolute w-100 d-flex justify-content-center">
+                <div id="d-banner_kuning" class="d-2 position-absolute text-center text-white margin-auto top-50 d-flex justify-content-center align-items-center">
+                    <b>
+                       1. Peta Kerajaan Sriwijaya
+                    </b>
+                </div>
+            </div>
+            <div class="position-absolute h-100 w-100 d-flex justify-content-center">
+                <div id="" class="d-form d-peta position-absolute text-center text-white mx-auto d-flex flex-row justify-content-center align-items-center"> 
+                    <img src="../../img/peta/kerajaan_budha/1_peta.png" alt="" srcset="">
+                </div>
+            </div>
+            <a href="../../materi.html" class="position-absolute top-10 end-0">
+                <img id="d-btn_close" src="../../img/btn_close.png" alt="" srcset="">
+            </a>
+            <div class="position-absolute bottom-0 w-100 d-flex justify-content-center mb-3">
+                <a href="../../materi.html" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_left.png" alt="" srcset="">
+                </a>
+                <a href="../../index.html" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_home.png" alt="" srcset="">
+                </a>
+                <a onclick="btn_materi_penjelasan_1()" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_right.png" alt="" srcset="">
+                </a>
+            </div>
+            <img id="d-home_img_bg" class="img_bg_materi_dibuka" src="../../img/bg_materi_dibuka.png" alt="" srcset="">
+        </div>
+        <div id="" class="d-materi_penjelasan_1 d-hide position-relative">
+            <div class="position-absolute w-100 d-flex justify-content-center">
+                <div id="d-banner_kuning" class="d-2 position-absolute text-center text-white margin-auto top-50 d-flex justify-content-center align-items-center">
+                    <b>
+                        Kerajaan Sriwijaya
+                    </b>
+                </div>
+            </div>
+            <div class="position-absolute h-100 w-100 d-flex justify-content-center">
+                <div id="" class="d-form d-materi_detail position-absolute text-center text-white mx-auto d-flex flex-row justify-content-center align-items-start"> 
+                    <div class="d-materi_konten_gambar">
+                        <b>Peta</b><br>
+                        <img src="../../img/peta/kerajaan_budha/1_letak.png" alt="" srcset="">
+                    </div>
+                    <div id="" class="d-materi_konten">
+                        <b id="d-title_konten">Penjelasan</b><br>
+                        Kerajaan Sriwijaya terletak di Jambi, Sumatera Selatan yang didirikan oleh Dapunta Hyang. Raja yang terkenal di kerajaan tersebut adalah Balaputra Dewa dan Sri Sangrama Wijaya. Peninggalan sejarah dari kerajaan tersebut berupa Prasasti Kedukan Bukit.
+                    </div>
+                    <div class="d-materi_konten_gambar">
+                        <b>Peninggalan</b><br>
+                        <img src="../../img/peta/kerajaan_budha/1_peninggalan.jpg" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+            <a href="../../materi.html" class="position-absolute top-10 end-0">
+                <img id="d-btn_close" src="../../img/btn_close.png" alt="" srcset="">
+            </a>
+            <div class="position-absolute bottom-0 w-100 d-flex justify-content-center mb-3">
+                <a onclick="btn_materi_peta_1()" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_left.png" alt="" srcset="">
+                </a>
+                <a href="../../index.html" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_home.png" alt="" srcset="">
+                </a>
+                <a onclick="btn_materi_lanjut_1()" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_right.png" alt="" srcset="">
+                </a>
+            </div>
+            <img id="d-home_img_bg" class="img_bg_map_awal" src="../../img/bg_map_awal.png" alt="" srcset="">
+        </div>
+
+        <div id="" class="d-materi_peta_2 d-hide position-relative">
+            <div class="position-absolute w-100 d-flex justify-content-center">
+                <div id="d-banner_kuning" class="d-2 position-absolute text-center text-white margin-auto top-50 d-flex justify-content-center align-items-center">
+                    <b>
+                       2. Peta Kerajaan Mataram Kuno
+                    </b>
+                </div>
+            </div>
+            <div class="position-absolute h-100 w-100 d-flex justify-content-center">
+                <div id="" class="d-form d-peta position-absolute text-center text-white mx-auto d-flex flex-row justify-content-center align-items-center"> 
+                    <img src="../../img/peta/kerajaan_budha/2_peta.png" alt="" srcset="">
+                </div>
+            </div>
+            <a href="../../materi.html" class="position-absolute top-10 end-0">
+                <img id="d-btn_close" src="../../img/btn_close.png" alt="" srcset="">
+            </a>
+            <div class="position-absolute bottom-0 w-100 d-flex justify-content-center mb-3">
+                <a onclick="btn_materi_peta_kembali_2()" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_left.png" alt="" srcset="">
+                </a>
+                <a href="../../index.html" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_home.png" alt="" srcset="">
+                </a>
+                <a onclick="btn_materi_penjelasan_2()" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_right.png" alt="" srcset="">
+                </a>
+            </div>
+            <img id="d-home_img_bg" class="img_bg_materi_dibuka" src="../../img/bg_materi_dibuka.png" alt="" srcset="">
+        </div>
+        <div id="" class="d-materi_penjelasan_2 d-hide position-relative">
+            <div class="position-absolute w-100 d-flex justify-content-center">
+                <div id="d-banner_kuning" class="d-2 position-absolute text-center text-white margin-auto top-50 d-flex justify-content-center align-items-center">
+                    <b>
+                        Kerajaan Mataram Kuno
+                    </b>
+                </div>
+            </div>
+            <div class="position-absolute h-100 w-100 d-flex justify-content-center">
+                <div id="" class="d-form d-materi_detail position-absolute text-center text-white mx-auto d-flex flex-row justify-content-center align-items-start"> 
+                    <div class="d-materi_konten_gambar">
+                        <b>Peta</b><br>
+                        <img src="../../img/peta/kerajaan_budha/2_letak.png" alt="" srcset="">
+                    </div>
+                    <div id="" class="d-materi_konten">
+                        <b id="d-title_konten">Penjelasan</b><br>
+                        Kerajaan mataram kuno terletak di Magelang Yogyakarta, Jawa Tengah. Pendiri dari kerajaan tersebut adalah Raja Sanjaya. Raja yang pernah berkuasa di kerajaan ini adalah Raja Wisnu, Raja Indra dan Raja Samaratungga. Peninggalan kerajaan ini berupa Candi Borobudur.
+                    </div>
+                    <div class="d-materi_konten_gambar">
+                        <b>Peninggalan</b><br>
+                        <img src="../../img/peta/kerajaan_budha/2_peninggalan.png" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+            <a href="../../materi.html" class="position-absolute top-10 end-0">
+                <img id="d-btn_close" src="../../img/btn_close.png" alt="" srcset="">
+            </a>
+            <div class="position-absolute bottom-0 w-100 d-flex justify-content-center mb-3">
+                <a onclick="btn_materi_peta_2()" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_help" src="../../img/btn_left.png" alt="" srcset="">
+                </a>
+                <a href="../../materi.html" class="d-btn_small_square d-flex justify-content-center">
+                    <img id="d-btn_materi" src="../../img/btn_selesai.png" alt="" srcset="">
+                </a>
+            </div>
+            <img id="d-home_img_bg" class="img_bg_materi_dibuka" src="../../img/bg_materi_dibuka.png" alt="" srcset="">
+        </div>
+    </main>
+    </div>
+</body>
+</html>

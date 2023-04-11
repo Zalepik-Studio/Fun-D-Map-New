@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="d_notif">JavaScript addEventListener()</h2>
+
+<p>This example uses the addEventListener() method to attach a click event to a button.</p>
+
+<button id="myBtn">Try it</button>
+
+<script>
+window.addEventListener("resize", function(){
+  var d_width = window.innerWidth;
+  var d_height = window.innerHeight;
+  var d_notif = document.getElementById("d_notif")
+  if(d_width<900){
+    if(d_height>d_width){
+        // document.getElementById("screen_hp_putar").classList.add("d_putar_dulu_layarnya");
+        d_notif.innerHTML = "Putar 90 Derajat";
+    }
+    else{
+        // document.getElementById("screen_hp_putar").classList.remove("d_putar_dulu_layarnya");
+        d_notif.innerHTML = "Sip";
+    }
+  }
+  else{
+      d_notif.innerHTML = "Ini Bukan HP";
+  }
+
+  var x = document.getElementById("myBtn");
+  x.innerHTML = "Browser width: " + d_width + ", height: " + d_height + ".";
+});
+</script>
+
+</body>
+</html>
