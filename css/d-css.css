@@ -1,0 +1,562 @@
+body{
+    margin: 0px;
+    background: url(../img/bg-wood.jpg);
+    background-size: cover;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+main{
+    height: 100%;
+    max-width: 1520px;
+    max-height: 854px;
+    margin: auto;
+}
+
+a,
+a img{
+    transition-duration: 240ms;
+}
+
+a img{
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(255, 255, 0, 0.0));
+    filter: drop-shadow(5px 5px 5px rgba(255, 255, 0, 0.0));
+}
+
+a:hover{
+    transform: scale(1.15);
+}
+
+a img:hover{
+    -webkit-filter: drop-shadow(0px 12px 44px rgba(255, 255, 0, 0.8));
+    filter: drop-shadow(0px 12px 44px rgba(255, 255, 0, 0.8));
+}
+
+#d-home{
+    background: url();
+}
+
+#d-home_img_bg{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#d-btn_close{
+    margin: 16px;
+    height: 80px;
+}
+
+.d-btn_small_square{
+    height: 80px;
+    margin: 16px;
+}
+
+.d-btn_small_square>img{
+    height: 100%;
+}
+
+.d-btn_medium{
+    height: 120px
+}
+
+.d-btn_medium>img{
+    height: 100%;
+}
+
+#d-banner_home{
+    background: url(../img/dec_banner_home.png);
+    background-size: contain;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0px 220px;
+    font-size: 24px;
+    
+}
+
+#d-banner_kuning{
+    background: url(../img/dec_banner.svg);
+    background-size: contain;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0px 160px 16px 160px;
+    font-size: 36px;
+}
+
+#d-mulai{
+    background: url(../img/bg_menu.png);
+}
+
+main>div{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.d-form{
+    background: #FFF1B1;
+    border: 10px solid #A26330;
+    padding: 24px 40px;
+    border-radius: 40px;
+    z-index: 3;
+}
+
+#d-mulai .d-form,
+#d-informasi_tombol .d-form,
+.d-form{
+    margin-top: 120px;
+    margin-bottom: 200px;
+}
+
+.btn_menu_form_img>img{
+    height: 160px;
+}
+
+#d-informasi_tombol #d-banner_kuning{
+    background: url(../img/dec_banner_informasi_tombol.svg);
+    background-size: contain;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0px 220px 12px 220px;
+    font-size: 32px;
+}
+
+#d-banner_kuning.d-2{
+    background: url(../img/dec_banner_informasi_tombol.svg);
+    background-size: contain;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0px 220px 12px 220px;
+    font-size: 32px;
+}
+
+.d-btn_hitam{
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.d-btn_hitam>img{
+    margin-right: 16px
+}
+
+.d-peta{
+    width:80%
+}
+
+.d-peta>img{
+    width:100%
+}
+
+.d-materi_detail{
+    width: 92%;
+}
+
+.d-materi_konten_gambar{
+    width: 160%;
+    color: black;
+    font-size: 28px;
+}
+
+.d-materi_detail>div.d-materi_konten_gambar>img{
+    width: 100%;
+}
+
+.d-materi_detail img{
+    width: 100%;
+}
+
+.d-materi_detail .d-materi_konten_gambar:first-child img{
+    max-height: 276px;
+    width: auto !important;
+    max-width: 324px;
+}
+
+.d-materi_detail .d-materi_konten_gambar:last-child img{
+    width: auto !important;
+    max-height: 276px;
+    max-width: 324px;
+}
+
+.d-materi_konten{
+    opacity: 80%;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    font-size: 24px;
+    margin: 0px 20px;
+}
+
+.d-materi_konten b#d-title_konten{
+    opacity: 100%;
+    color: black;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.d-materi_konten b#d-title_konten,
+.d-materi_konten_gambar b{
+    margin-bottom: 0px;
+    display: block;
+}
+
+.d-btn_materi_islam{
+    background: #70AD47;
+}
+
+.d-btn_materi_hindu{
+    background: #767171;
+}
+
+.d-btn_materi_budha{
+    background: #C00000;
+}
+
+a.btn_menu_form_img>div{
+    border-radius: 32px;
+    color: white;
+    font-weight: 700;
+    font-size: 32px;
+    padding: 16px 24px;
+    border: 4px solid black;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+#d-materi_menu .d-form{
+    padding: 80px 96px;
+}
+
+.d-mulai_pertanyaan{
+    background: white;
+    font-size: 28px;
+    margin-top: 120px;
+    margin-bottom: 24px;
+    padding: 56px 72px;
+    border: 4px solid #2F528F;
+    margin-right: 160px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 64%;
+}
+
+.d-mulai_pertanyaan ~ a{
+    margin-right: 480px;
+}
+
+.d-mulai_pertanyaan ol li{
+    margin:-16px 0px;
+}
+
+.d-soal{
+    margin-top: 40px !important;
+}
+
+.d-soal_yang_dibaca{
+    background: #F8CBAD;
+    border: 4px solid #C55A11;
+    padding: 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 36px;
+    width: 80%;
+    margin-bottom: 80px;
+}
+
+.d-jawaban .d-pilihan ~ div{
+    background: #F8CBAD;
+    border: 4px solid #C55A11;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 36px;
+    margin-left: 16px;
+}
+
+.d-jawaban .d-pilihan{
+    background: white;
+    padding: 8px;
+    border-radius: 28px;
+    border: 4px solid yellow;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 48px;
+}
+
+.d-jawaban img{
+    max-width: 320px;
+}
+
+.d-jawaban>div>a{
+    margin-bottom: 40px;
+    margin-right: 96px;
+    height: fit-content;
+}
+
+.d-jawaban>div>button{
+    border: 0px #FFFFFF00;
+    background: #FFFFFF00;
+    height: auto
+}
+
+#d-soal_dikerjakan .d-form{
+    border: 0px solid #FFFFFF00;
+    background: #FFFFFF00
+}
+
+#d-wrap_skor{
+    font-size: 24px;
+    font-weight: 700;
+    padding: 0px 24px 8px 24px;
+    border-radius: 16px;
+    background: yellow;
+    border: 8px solid white;
+    margin: 16px;
+}
+
+#d-wrap_skor #d-skor{
+    font-size: 36px;
+    font-weight: 700;
+    display: inline-block;
+    color: #C55A11;
+}
+
+#d-timer{
+    font-size: 24px;
+    font-weight: 700;
+    padding: 20px 16px 4px 16px;
+    border-radius: 16px;
+    background: white;
+    border: 0px solid rgb(84, 34, 177);
+    margin: 16px;
+    right: 0;
+    margin-top: 468px !important;
+}
+
+#d-timer #d-countdown{
+    font-size: 36px;
+    font-weight: 700;
+    display: inline-block;
+    color: black;
+    padding-top: 4px;
+}
+
+#d-timer img{
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.d-hide{
+    visibility: hidden !important;
+    height: 0px;
+    overflow: hidden;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.d-modal_jawaban{
+    max-width: 440px;
+}
+
+.d-status_success{
+    background: #15ed15;
+}
+
+.d-status_gagal{
+    background: gray;
+}
+
+@media only screen and (max-width: 1000px) {
+    #d-banner_kuning{
+        font-size: 24px;
+        padding-right: 132px;
+        padding-left: 132px;
+    }
+    /* body{
+        position: relative !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: start !important;
+        height: 100%;
+    }
+
+    #d-wrapper_screen{
+        width: 1520px;
+        height: 854px;
+        transform: scale(0.7);
+        position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        top: 0; 
+        align-self: start;
+    } */
+    
+    .d-btn_small_square{
+        height: 44px;
+    }
+
+    #d-btn_close{
+        height: 44px
+    }
+
+    #d-banner_kuning.d-2{
+        font-size: 18px;
+        padding: 0px 144px 12px 144px;
+        height: 96px
+    }
+
+    #d-mulai .d-form, #d-informasi_tombol .d-form, .d-form{
+        margin-top: 84px;
+    }
+
+    .d-materi_detail .d-materi_konten_gambar:first-child img {
+        max-height: 196px;
+        max-width: 236px;
+    }
+
+    .d-materi_detail .d-materi_konten_gambar:last-child img {
+        max-height: 196px;
+        max-width: 236px;
+    }
+
+    .d-materi_konten{
+        font-size: 18px;
+    }
+
+    .d-materi_konten b#d-title_konten,
+    .d-materi_konten_gambar{
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    a.btn_menu_form_img>div{
+        font-size: 28px;
+    }
+
+    #d-materi_menu .d-form{
+        padding: 56px 72px;
+    }
+
+    .btn_menu_form_img>img{
+        height: 128px;
+    }
+
+    .d-mulai_pertanyaan{
+        margin-right: 44px;
+        font-size: 24px;
+        padding: 36px 32px;
+    }
+
+    .d-btn_medium {
+        height: 88px;
+    }
+
+    .d-soal_yang_dibaca {
+        font-size: 24px;
+    }
+
+    .d-jawaban .d-pilihan ~ div {
+        border: 4px solid #C55A11;
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 24px;
+        margin-left: 16px;
+    }
+
+    .d-jawaban .d-pilihan {
+        font-size: 24px;
+        width: 56px;
+        height:56px;
+        border-radius: 20px;
+    }
+
+    .d-form{
+        border: 4px solid #A26330;
+        padding: 16px 28px;
+    }
+
+    #d-banner_home{
+        margin-top: 40px;
+        height:72px;
+        width: 80%;
+    }
+
+    #d-banner_home b{
+        font-size: 16px;
+    }
+
+    .img_bg_home{
+        content: url(../img/mobile/bg_home.png) !important;
+    }
+
+    .img_bg_skor{
+        content: url(../img/mobile/bg_skor.png);
+    }
+
+    .img_bg_kuis_soal{
+        content: url(../img/mobile/bg_kuis_soal.png) !important;
+    }
+
+    .img_bg_menu_materi{
+        content: url(../img/mobile/bg_menu_materi.png) !important;
+    }
+
+    .img_bg_menu{
+        content: url(../img/mobile/bg_menu.png) !important;
+    }
+
+    .img_bg_map_awal{
+        content: url(../img/mobile/bg_map_awal.png) !important;
+    }
+
+    .img_bg_materi{
+        content: url(../img/mobile/bg_materi.png) !important;
+    }
+
+    .img_bg_materi_dibuka{
+        content: url(../img/mobile/bg_materi_dibuka.png) !important;
+    }
+
+    .img_bg_menu{
+        content: url(../img/mobile/bg_menu.png) !important;
+    }
+}
+
+#d-skor_akhir #d-banner_kuning{
+    background: url("");
+}
+
+/* #screen_hp_putar{
+    display: block;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.8);
+} */
+
+.d_putar_dulu_layarnya{
+    display: block !important;
+    opacity: 1 !important;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-dialog-scrollable{
+    height: 100% !important
+}
+
+.d-waktu_habis{
+    display: block !important;
+    opacity: 1 !important;
+    background: rgba(0, 0, 0, 0.8) !important
+}
